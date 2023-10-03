@@ -12,10 +12,10 @@ namespace RestWithASPNETUdemy.Controllers
     [Route("api/[controller]/v{version:ApiVersion}")]
     public class PersonController : ControllerBase
     {
-        private readonly ILogger<PersonController> _logger;
+        private readonly ILogger<BookController> _logger;
         private readonly IPersonBusiness _PersonBusiness;
 
-        public PersonController(ILogger<PersonController> logger, IPersonBusiness personBusiness)
+        public PersonController(ILogger<BookController> logger, IPersonBusiness personBusiness)
         {
             _logger = logger;
             _PersonBusiness = personBusiness;

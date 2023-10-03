@@ -8,6 +8,7 @@ using RestWithASPNETUdemy.Business;
 using RestWithASPNETUdemy.Business.Implementations;
 using RestWithASPNETUdemy.Data;
 using RestWithASPNETUdemy.Repository;
+using RestWithASPNETUdemy.Repository.Generic;
 using RestWithASPNETUdemy.Repository.Implementations;
 using System;
 
@@ -37,7 +38,9 @@ namespace RestWithASPNETUdemy
             services.AddApiVersioning();
             services.AddScoped<IPersonRepository, PersonRepostoryImplementaton>();
             services.AddScoped<IPersonBusiness, PersonBusinessImplementaton>();
-            services.AddScoped<BancoContext>();
+            services.AddScoped<IBookRepository, BookRepostoryImplementaton>();
+            services.AddScoped<IBookBusiness, BookBusinessImplementaton>();
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
